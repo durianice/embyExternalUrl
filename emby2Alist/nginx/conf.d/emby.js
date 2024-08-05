@@ -509,7 +509,7 @@ async function fetchEmbyFilePath(itemInfoUri, itemId, Etag, mediaSourceId) {
            */
           rvt.notLocal = mediaSource.IsInfiniteStream
             || mediaSource.IsRemote
-            || util.checkIsStrmByPath(item.Path);
+            || util.checkIsStrmByPath(mediaSource.Path);
         } else {
           // "MediaType": "Photo"... not have "MediaSources" field
           rvt.path = item.Path;
