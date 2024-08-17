@@ -12,15 +12,15 @@ import nginxConfig from "./config/constant-nginx.js";
 // 必填项,根据实际情况修改下面的设置
 
 // 这里默认 emby/jellyfin 的地址是宿主机,要注意 iptables 给容器放行端口
-const embyHost = "http://172.17.0.6:8096";
+const embyHost = "{{EMBY_HOST}}";
 
 // emby/jellyfin api key, 在 emby/jellyfin 后台设置
-const embyApiKey = "xxxx";
+const embyApiKey = "{{EMBY_API_KEY}}";
 
 // 挂载工具 rclone/CD2 多出来的挂载目录, 例如将 od,gd 挂载到 /mnt 目录下: /mnt/onedrive /mnt/gd ,那么这里就填写 /mnt
 // 通常配置一个远程挂载根路径就够了,默认非此路径开头文件将转给原始 emby 处理,不用重复填写至 disableRedirectRule
 // 如果没有挂载,全部使用 strm 文件,此项填[""],必须要是数组
-const mediaMountPath = ["/media"];
+const mediaMountPath = ["{{MEDIA_MOUNT_PATH}}"];
 
 // for js_set
 function getEmbyHost(r) {
